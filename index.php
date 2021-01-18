@@ -7,18 +7,22 @@
         <br>
         <div class="col-md-12">
             <div class="panel panel-warning hidden-print">
-               
+
                 <div class="panel-heading">
                     <div class="btn-group pull-right">
-                        <button type='button' id="btn_registrarse" data-toggle="modal" data-target="#modal_registro"
+                        <a id="btn_registrarse" data-toggle="modal" data-target="#modal_registro"
                             class="btn btn-primary"><span class="fa fa-user"></span> Registrarse
-                        </button>
-                        <button type='button' id="btn_marcaciones" class="btn btn-success"><span class="fa fa-check"></span> Marcaciones
-                        </button>
+                        </a>
+                        <a id="btn_marcaciones" class="btn btn-success"><span class="fa fa-check"></span> Marcaciones
+                        </a>
+                        <a href='./cpanel.php' id="btn_cpanel" class="btn btn-primary"><span class="fa fa-cog"></span>
+                            Control Panel
+                        </a>
+
                     </div>
                     <h4><i class='fa fa-eye'></i> Control de Horario </h4>
                 </div>
-              
+
                 <div class="panel-body">
                     <div id="respuesta"></div>
                     <form class="form-horizontal" role="form" id="frm_horario">
@@ -37,7 +41,7 @@
                         </div>
                     </form>
                 </div>
-            
+
             </div>
 
             <div id='table'></div>

@@ -1,5 +1,4 @@
 <?php
-
 // llamar al archivo conexion
 include '../config/conexion.php';
 include '../funciones.php';   //Archivo de funciones PHP
@@ -29,7 +28,7 @@ if (!$is_user) {
     $mesInicio = date('Y-m-01');
     $mesFin = date('Y-m-31');
 
-    echo    $consulta = "SELECT in_work, date_work, exit_work, start_break, end_break, SEC_TO_TIME(TIMESTAMPDIFF(SECOND, in_work, exit_work)) Entrada_Salida, SEC_TO_TIME(TIMESTAMPDIFF(SECOND, start_break, end_break)) break_in_out   FROM horarios WHERE id_user= '$is_user' AND date_work >= '$mesInicio' AND date_work <= '$mesFin' order by date_work DESC";
+    $consulta = "SELECT in_work, date_work, exit_work, start_break, end_break, SEC_TO_TIME(TIMESTAMPDIFF(SECOND, in_work, exit_work)) Entrada_Salida, SEC_TO_TIME(TIMESTAMPDIFF(SECOND, start_break, end_break)) break_in_out   FROM horarios WHERE id_user= '$is_user' AND date_work >= '$mesInicio' AND date_work <= '$mesFin' order by date_work DESC";
 
     $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
     $count = mysqli_num_rows($result);
