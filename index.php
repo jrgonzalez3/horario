@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include './head.php'; ?>
+<?php
+session_start();
+include './head.php'; ?>
 
 <body>
     <div class="container">
         <br>
         <div class="col-md-12">
-            <div class="panel panel-warning hidden-print">
+            <div class="panel panel-success hidden-print">
 
                 <div class="panel-heading">
                     <div class="btn-group pull-right">
                         <a id="btn_registrarse" data-toggle="modal" data-target="#modal_registro"
                             class="btn btn-primary"><span class="fa fa-user"></span> Registrarse
                         </a>
-                        <a id="btn_marcaciones" class="btn btn-success"><span class="fa fa-check"></span> Marcaciones
-                        </a>
-                        <a href='./cpanel.php' id="btn_cpanel" class="btn btn-primary"><span class="fa fa-cog"></span>
-                            Control Panel
-                        </a>
-
                     </div>
+
+                    <div class="btn-group pull-right">
+                        <a href="./cpanel.php" id="btn_cpanel" style="visibility: hidden" class="btn btn-primary"><span
+                                class="fa fa-cog"></span>
+                            Control Panel</a>
+                    </div>
+
+                    <div class="btn-group pull-right">
+                        <a id="btn_marcaciones" style="visibility: hidden" class="btn btn-success"><span
+                                class="fa fa-check"></span> Marcaciones
+                        </a>
+                    </div>
+
                     <h4><i class='fa fa-eye'></i> Control de Horario </h4>
                 </div>
 
                 <div class="panel-body">
                     <div id="respuesta"></div>
-                    <form class="form-horizontal" role="form" id="frm_horario">
+                    <form class="form-horizontal" role="form" id="frm_horario" autocomplete="off">
                         <div class="form-group row">
                             <label for="clave" class="col-md-2 control-label">Clave de Empleado: </label>
                             <div class="col-md-3">
-                                <input autofocus type="password" class="form-control" id="clave" name='clave'
-                                    placeholder="Ingrese Clave y de enter">
+                                <input autofocus autocomplete="new-password" type="password" class="form-control"
+                                    id="clave" name='clave' placeholder="Ingrese su codig0 y presione enter">
                                 <span id="loader"></span>
                             </div>
                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -78,8 +87,8 @@
                     <div class="form-group">
                         <label for="Username" class="col-sm-3 control-label">Usuario</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="username" name="username"
-                                placeholder="Nombre de Usuario" required value="">
+                            <input type="text" class="form-control" autocorrect="off" autocapitalize="off"
+                                autocomplete="ÑÖcompletes" id="username" name="username" placeholder="Usuario" required>
                         </div>
                     </div>
 
@@ -87,7 +96,7 @@
                         <label for="clave" class="col-sm-3 control-label">Clave</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Ingrese Clave" required value="">
+                                placeholder="Ingrese Clave" autocomplete="new-password" required>
                         </div>
                         <span class="help-block" id="error"></span>
                     </div>

@@ -14,12 +14,13 @@
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="assets/css/custom.css">
 	<!-- GOOGLE FONTS -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
     <link rel="stylesheet" href="./assets/css/datepicker.css">
     <link rel="stylesheet" href="./assets/css/jquery.dataTables.min.css">
     <link rel=icon href='./assets/img/favicon.png' sizes="32x32" type="image/png">
+	<link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     
     <title>Marcacion Horaria - JR Ingenieria</title>
 </head>

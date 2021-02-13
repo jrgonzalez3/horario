@@ -3,29 +3,24 @@
 // llamar al archivo conexion
 include '../config/conexion.php';
 include '../funciones.php';   //Archivo de funciones PHP
-
-//recibir parametros
-if (isset($_POST['nombre'])) {
-    $nombre = $_POST['nombre'];
-}
-if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-}
-if (isset($_POST['password'])) {
-    $password = sha1($_POST['password']);
-}
-$hoy = date('Y-m-d H:i:s');
-$clave = get_row('users', 'password', 'password', $password);
-$username_bd = get_row('users', 'username', 'password', $password);
-
-if ($clave == $password && $username == $username_bd) {
-    $errors[] = 'Ya existe usuario con esos parametros.';
-} else {
-    $consulta = "INSERT INTO users(name, username, password, active, date_add) 
-    VALUES (UPPER('$nombre'),LOWER('$username'), '$password', 1, '$hoy')";
+$params = $_POST['id_borrar'];
+$id_a_editar = $_POST['id_editar'];
+if ($params) {
+    // marcar entrada insert
+    $consulta = "DELETE FROM horarios WHERE id = '$params'";
     $sql = mysqli_query($con, $consulta);
     if ($sql) {
-        $messages[] = 'Usuario Creado Exitosamente.';
+        $messages[] = 'Marcacion Eliminada Exitosamente.';
+    } else {
+        $errors[] = 'Error desconocido.'.mysqli_error($con);
+    }
+}
+if ($id_a_editar) {
+    // marcar entrada insert
+    $consulta = "UPDATE horarios SET  WHERE id = '$params'";
+    $sql = mysqli_query($con, $consulta);
+    if ($sql) {
+        $messages[] = 'Marcacion Actualizada Exitosamente.';
     } else {
         $errors[] = 'Error desconocido.'.mysqli_error($con);
     }

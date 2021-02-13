@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 // llamar al archivo conexion
 include '../config/conexion.php';
 include '../funciones.php';   //Archivo de funciones PHP
@@ -12,19 +13,36 @@ $is_user = get_row('users', 'id', 'password', $clave);
 if (!$is_user) {
     echo '<script>
     alert("Usuario Inexistente");
+    
     limpiar_form();
     </script>';
 } else {
-    $boton_start = '<button type="button" onclick="marcar(1,'.$is_user.')" class="btn btn-success">
+    if ($is_user == 23) {
+        $_SESSION['usuario_sesion'] = $is_user;
+        echo '<script>
+        $("#btn_cpanel").css("visibility", "visible");
+        </script>';
+    } else {
+        echo '<script>
+        $("#btn_cpanel").css("visibility", "hidden"); 
+        </script>';
+    }
+
+    $boton_marcaciones = '<div class="btn-group pull-right">
+<a id="btn_marcaciones" class="btn btn-success"><span class="fa fa-check"></span> Marcaciones
+</a>
+</div>';
+
+    $boton_start = '<button id="marcar_entrada" type="button" onclick="marcar(1,'.$is_user.')" class="btn btn-success">
 <span class="fa fa-pencil"></span> Marcar Entrada </button>
 ';
-    $boton_start_break = '<button type="button" onclick="marcar(2,'.$is_user.')" class="btn btn-primary">
+    $boton_start_break = '<button type="button" id="inicio_break" onclick="marcar(2,'.$is_user.')" class="btn btn-primary">
 <span class="fa fa-pencil"></span> Inicio Break </button>
 ';
-    $boton_end_break = '<button type="button" onclick="marcar(3,'.$is_user.')" class="btn btn-warning">
+    $boton_end_break = '<button type="button" id="fin_break" onclick="marcar(3,'.$is_user.')" class="btn btn-warning">
 <span class="fa fa-pencil"></span> Fin Break </button>
 ';
-    $boton_end = '<button type="button" onclick="marcar(4,'.$is_user.')" class="btn btn-danger">
+    $boton_end = '<button type="button" id="marcar_salida" onclick="marcar(4,'.$is_user.')" class="btn btn-danger">
 <span class="fa fa-pencil"></span> Marcar Salida </button>
 ';
     $date = date('Y-m-d');
@@ -35,6 +53,9 @@ if (!$is_user) {
         echo $boton_start;
     }
     while ($row = mysqli_fetch_array($result)) {
+        echo '<script>
+        $("#btn_marcaciones").css("visibility", "visible"); 
+        </script>';
         $now = date('Y-m-d');
         $date_work = $row['date_work'];
         if ($now == $date_work) {
