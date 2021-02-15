@@ -52,8 +52,8 @@ $username = get_row('users', 'username', 'id', $user);
   
         <br>
         <div class="col-md-12">
-            <div class="panel panel-success hidden-print">
-                <div class="panel-heading">
+            <div class="panel hidden-print">
+                <div class="panel-heading"  style="background-color:#F3F5F8">
                     <h4><i class='fa fa-eye'></i> Reporte - Control de Horario </h4>
                 </div>
 

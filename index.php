@@ -9,7 +9,6 @@ include './head.php'; ?>
         <br>
         <div class="col-md-12">
             <div class="panel panel-success hidden-print">
-
                 <div class="panel-heading">
                     <div class="btn-group pull-right">
                         <a id="btn_registrarse" data-toggle="modal" data-target="#modal_registro"
@@ -29,7 +28,9 @@ include './head.php'; ?>
                         </a>
                     </div>
 
-                    <h4><i class='fa fa-eye'></i> Control de Horario </h4>
+                    <h4><i class='fa fa-eye'></i> Control de Horario | <?php echo date('d - m - Y'); ?> | <span
+                            class="hora" id="reloj" style="font-size:20px;"></span> </h4>
+
                 </div>
 
                 <div class="panel-body">
@@ -119,7 +120,28 @@ include './head.php'; ?>
     </div>
 </div>
 <?php include './footer.php'; ?>
-
 <script src="./script.js"></script>
+<script type="text/javascript">
+function startTime() {
+    today = new Date();
+    h = today.getHours();
+    m = today.getMinutes();
+    s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('reloj').innerHTML = h + ":" + m + ":" + s;
+    t = setTimeout('startTime()', 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+window.onload = function() {
+    startTime();
+}
+</script>
 
 </html>

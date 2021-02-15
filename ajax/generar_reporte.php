@@ -33,8 +33,8 @@ if (isset($_POST['id_funcionario']) and ($_POST['id_funcionario'] != '')) {
     if ($count == 0) {
         echo 'No se encontraron registros  ';
     } ?>
-<div class="panel panel-warning">
-    <div class="panel-heading">
+<div class="panel panel-success">
+    <div class="panel-heading"  >
         <h5><i class='fa fa-list'></i> Listado de Horas Registradas <?php echo  $name_user ? 'de '.$name_user : ' de todos'; ?> </h5>
     </div>
     <div class="panel-body">

@@ -2,10 +2,12 @@
     height: 50px!important;  
 }
 
-.logo{
-    max-width: 45%;
+.logo {
+    max-width: 67%;
+    margin-left: 11px;
+    background-color: transparent;
+    margin-top: -10px;
 }
-
 .navbar-default .brand {
     width: 231px!important;
     padding: 8px 0px 0px 0px !important;
