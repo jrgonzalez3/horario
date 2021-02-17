@@ -119,9 +119,8 @@ function marcar(params, id_user) {
 
   });
   setTimeout(function () {
-    // window.location.reload(); // you can pass true to reload function to ignore the client cache and reload from the server
+     window.location.reload(); // you can pass true to reload function to ignore the client cache and reload from the server
     limpiar_form();
-  
   }, 1500); //delayTime should be written in milliseconds e.g. 1000 which equals 1 second
 }
 

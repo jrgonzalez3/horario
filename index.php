@@ -29,7 +29,7 @@ include './head.php'; ?>
                     </div>
 
                     <h4><i class='fa fa-eye'></i> Control de Horario | <?php echo date('d - m - Y'); ?> | <span
-                            class="hora" id="reloj" style="font-size:20px;"></span> </h4>
+                            class="hora" id="reloj1"></span> </h4>
 
                 </div>
 
@@ -129,7 +129,9 @@ function startTime() {
     s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
+    document.getElementById('reloj1').innerHTML = h + ":" + m + ":" + s;
     document.getElementById('reloj').innerHTML = h + ":" + m + ":" + s;
+
     t = setTimeout('startTime()', 500);
 }
 
