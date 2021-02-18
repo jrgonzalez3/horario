@@ -149,14 +149,14 @@ $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
                         <label for="entrada" class="col-sm-3 control-label">Entrada</label>
                         <div class="col-sm-8">
                         <input type="hidden" name="id" >
-                            <input type="text" class="form-control" id="entrada" name="entrada"
+                            <input type="time" step='1' class="form-control" id="entrada" name="entrada"
                                 placeholder="Hora entrada"  >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inicio" class="col-sm-3 control-label">Inicio Break</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" autocorrect="off" autocapitalize="off"
+                            <input type="time" step='1' class="form-control" autocorrect="off" autocapitalize="off"
                                  id="inicio" name="inicio" placeholder="Inicio Break"
                                 >
                         </div>
@@ -164,7 +164,7 @@ $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
                     <div class="form-group">
                         <label for="fin" class="col-sm-3 control-label">Fin Break</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="fin" name="fin"
+                            <input type="time" step='1' class="form-control" id="fin" name="fin"
                                 placeholder="Ingrese fin" >
                         </div>
                         <span class="help-block" id="error"></span>
@@ -172,7 +172,7 @@ $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
                     <div class="form-group">
                         <label for="fin" class="col-sm-3 control-label">Salida</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="salida" name="salida"
+                            <input type="time" step='1' class="form-control" id="salida" name="salida"
                                 placeholder="Salida"  >
                         </div>
                         <span class="help-block" id="error"></span>

@@ -1,11 +1,10 @@
 <?php
-
 // llamar al archivo conexion
 include '../config/conexion.php';
 include '../funciones.php';   //Archivo de funciones PHP
-$params = $_POST['id_marcacion'];
-if ($params) {
-    // marcar entrada insert
+if (!empty($_POST['id_marcacion'])) {
+    $params = $_POST['id_marcacion'];
+    // buscar entradas marcadas
     $consulta = "SELECT * FROM horarios WHERE id = '$params'";
     $sql = mysqli_query($con, $consulta);
     if ($sql) {
@@ -27,13 +26,20 @@ if ($params) {
     $inicio = $_POST['inicio'];
     $fin = $_POST['fin'];
     $salida = $_POST['salida'];
-
-    $consulta = "UPDATE horarios SET
-in_work = '$entrada',
-start_break = '$inicio',
-end_break = '$fin',
-exit_work = '$salida'
-WHERE id = '$id'";
+    $carga = "";
+    if (!empty($entrada)) {
+        $carga .= 'in_work = ' . "'$entrada'"; 
+    }
+    if (!empty($inicio)) {
+          $carga .= ', start_break = ' ."'$inicio'";
+      }
+      if (!empty($fin)) {
+          $carga .= ', end_break = ' ."'$fin'";
+      }
+      if (!empty($salida)) {
+          $carga .= ', exit_work = ' . "'$salida'";
+      }
+ $consulta= "UPDATE horarios SET $carga WHERE id = '$id'";
     $sql = mysqli_query($con, $consulta);
     if ($sql) {
         $messages[] = 'Marcacion Actualizada Exitosamente.';
@@ -74,3 +80,6 @@ if (isset($errors)) {
 </div>
 <?php
     }
+           
+    
+   
