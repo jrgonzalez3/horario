@@ -39,7 +39,7 @@ include './head.php'; ?>
                         <div class="form-group row">
                             <label for="clave" class="col-md-2 control-label">Clave de Empleado: </label>
                             <div class="col-md-3">
-                                <input autofocus autocomplete="new-password" type="password" class="form-control"
+                                <input autofocus autocomplete="new-password" type="text" class="form-control"
                                     id="clave" name='clave' placeholder="Ingrese su codig0 y presione enter">
                                 <span id="loader"></span>
                             </div>

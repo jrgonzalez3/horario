@@ -27,3 +27,6 @@
     min-height: 0px!important;
     background-color: #2B333E!important;
 }
+input#clave{
+    -webkit-text-security: disc;
+}
