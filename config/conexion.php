@@ -4,8 +4,8 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 /*Datos de conexion a la base de datos  */
 define('DB_HOST', 'localhost'); //DB_HOST:  generalmente suele ser "127.0.0.1"
 define('DB_USER', 'root'); //Usuario de tu base de datos
-define('DB_PASS', ''); //Contraseña del usuario de la base de datos
-define('DB_NAME', 'horarios'); //Nombre de la base de datos
+define('DB_PASS', '12345678'); //Contraseña del usuario de la base de datos
+define('DB_NAME', 'horario'); //Nombre de la base de datos
 
 $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 mysqli_query($con, 'SET NAMES UTF-8');
