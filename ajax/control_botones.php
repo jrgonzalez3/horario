@@ -10,10 +10,11 @@ if (isset($_POST['clave'])) {
     $clave = sha1($_POST['clave']);
 }
 $is_user = get_row('users', 'id', 'password', $clave);
+$name_user = get_row('users', 'name', 'id', $is_user);
+
 if (!$is_user) {
     echo '<script>
     alert("Usuario Inexistente");
-    
     limpiar_form();
     </script>';
 } else {
@@ -28,11 +29,6 @@ if (!$is_user) {
         </script>';
     }
 
-    $boton_marcaciones = '<div class="btn-group pull-right">
-<a id="btn_marcaciones" class="btn btn-success"><span class="fa fa-check"></span> Marcaciones
-</a>
-</div>';
-
     $boton_start = '<button id="marcar_entrada" type="button" onclick="marcar(1,'.$is_user.')" class="btn btn-success">
 <span class="fa fa-pencil"></span> Marcar Entrada </button>
 ';
@@ -46,13 +42,14 @@ if (!$is_user) {
 <span class="fa fa-pencil"></span> Marcar Salida </button>
 ';
     $date = date('Y-m-d');
-    $consulta = "SELECT in_work, date_work, start_break, end_break, exit_work FROM horarios h  JOIN users u ON h.id_user=u.id WHERE u.password ='$clave' AND date_work ='$date' ";
+    $consulta = "SELECT in_work, date_work, start_break, end_break, exit_work FROM horarios h  JOIN users u ON h.id_user=u.id WHERE u.password ='$clave' AND date_work ='$date'  ORDER BY h.id ";
     $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
     $count = mysqli_num_rows($result);
     if ($count == 0) {
         echo $boton_start;
     }
     while ($row = mysqli_fetch_array($result)) {
+        //  var_dump($row);
         echo '<script>
         $("#btn_marcaciones").css("visibility", "visible"); 
         </script>';
@@ -74,10 +71,11 @@ if (!$is_user) {
             } elseif ($end == '') {
                 echo $boton_end;
             } else {
-                echo 'hoy ya no hay nada que marcar';
+                echo ' <label class="text-danger text-right form-text text-muted ">Hoy ya no hay nada que marcar! </label>';
             }
         } else {
             echo $boton_start;
         }
+        echo ' <label class="text-warning text-right form-text text-muted ">  '.$name_user.'  </label>';
     }
 }

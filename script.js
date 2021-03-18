@@ -91,7 +91,7 @@ function limpiar_form() {
 }
 
 function ocultar_botones(params) {
-  $("#btn_marcaciones").css('visibility', 'hidden');//ocultamos el modal 
+ // $("#btn_marcaciones").css('visibility', 'hidden');//ocultamos el modal 
   $("#btn_cpanel").css('visibility', 'hidden');//ocultamos el modal 
   $("#marcar_entrada").css('visibility', 'hidden');//ocultamos el modal 
   $("#inicio_break").css('visibility', 'hidden');//ocultamos el modal 

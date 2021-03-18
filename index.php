@@ -44,8 +44,7 @@ include './head.php'; ?>
                                 <span id="loader"></span>
                             </div>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <div class='col-xs-12' id='resultado_botones'>
-                                </div>
+                                <div class='col-xs-12' id='resultado_botones'></div>
 
                             </div>
                         </div>
