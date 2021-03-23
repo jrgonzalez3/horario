@@ -14,6 +14,7 @@ if (!empty($_POST['id_marcacion'])) {
             'start_break' => $row['start_break'],
             'end_break' => $row['end_break'],
             'exit_work' => $row['exit_work'],
+            'date_work' => $row['date_work'],
         ];
         }
         echo json_encode($data);
@@ -26,20 +27,25 @@ if (!empty($_POST['id_marcacion'])) {
     $inicio = $_POST['inicio'];
     $fin = $_POST['fin'];
     $salida = $_POST['salida'];
-    $carga = "";
+    $date_work = $_POST['date_work'];
+
+    $carga = '';
     if (!empty($entrada)) {
-        $carga .= 'in_work = ' . "'$entrada'"; 
+        $carga .= 'in_work = '."'$entrada'";
     }
     if (!empty($inicio)) {
-          $carga .= ', start_break = ' ."'$inicio'";
-      }
-      if (!empty($fin)) {
-          $carga .= ', end_break = ' ."'$fin'";
-      }
-      if (!empty($salida)) {
-          $carga .= ', exit_work = ' . "'$salida'";
-      }
- $consulta= "UPDATE horarios SET $carga WHERE id = '$id'";
+        $carga .= ', start_break = '."'$inicio'";
+    }
+    if (!empty($fin)) {
+        $carga .= ', end_break = '."'$fin'";
+    }
+    if (!empty($salida)) {
+        $carga .= ', exit_work = '."'$salida'";
+    }
+    if (!empty($date_work)) {
+        $carga .= ', date_work = '."'$date_work'";
+    }
+    $consulta = "UPDATE horarios SET $carga WHERE id = '$id'";
     $sql = mysqli_query($con, $consulta);
     if ($sql) {
         $messages[] = 'Marcacion Actualizada Exitosamente.';
@@ -80,6 +86,3 @@ if (isset($errors)) {
 </div>
 <?php
     }
-           
-    
-   

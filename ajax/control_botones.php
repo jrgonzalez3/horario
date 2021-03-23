@@ -47,6 +47,7 @@ if (!$is_user) {
     $count = mysqli_num_rows($result);
     if ($count == 0) {
         echo $boton_start;
+        echo ' <label class="text-warning text-right form-text text-muted ">  '.$name_user.'  </label>';
     }
     while ($row = mysqli_fetch_array($result)) {
         //  var_dump($row);

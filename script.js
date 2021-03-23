@@ -185,6 +185,8 @@ function editar_marcacion(id) {
      $('[name="inicio"]').val(data.start_break);
      $('[name="fin"]').val(data.end_break);
      $('[name="salida"]').val(data.exit_work);
+     $('[name="date_work"]').val(data.date_work);
+
      $("#notification").html("");
     }
   });

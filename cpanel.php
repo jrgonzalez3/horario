@@ -177,6 +177,14 @@ $result = mysqli_query($con, $consulta) or die(mysqli_error($con));
                         </div>
                         <span class="help-block" id="error"></span>
                     </div>
+                    <div class="form-group">
+                        <label for="date_work" class="col-sm-3 control-label">Dia Laboral</label>
+                        <div class="col-sm-8">
+                            <input type="date" step='1' class="form-control" id="date_work" name="date_work"
+                                placeholder="date_work"  >
+                        </div>
+                        <span class="help-block" id="error"></span>
+                    </div>
 
             </div>
             <div class="modal-footer">
